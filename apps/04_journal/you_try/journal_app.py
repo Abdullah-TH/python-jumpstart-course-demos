@@ -14,20 +14,21 @@ def print_header():
 
 def run_event_loop():
     print('What do you want to do with your journal?')
-    command = None
+    command = 'Nothing Yet'
     journal_name = 'default'
     journal_list = journal.load(journal_name)
 
-    while command != 'x':
+    while command != 'x' and command:
         command = input("[L]ist entries, [A]dd entries, E[x]it: ")
         command = command.lower().strip()
         if command == 'l':
             list_entries(journal_list)
         elif command == 'a':
             add_entry(journal_list)
-        elif command != 'x':
+        elif command != 'x' and command:
             print(f"Sorry, we don't understand '{command}'")
 
+    journal.save(journal_name, journal_list)
     print('Done, goodbye')
 
 
