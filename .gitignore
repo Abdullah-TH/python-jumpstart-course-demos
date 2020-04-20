@@ -66,3 +66,5 @@ target/
 .DS_Store
 .idea
 .env
+venv
+apps/06_lolcat_factory/you_try/cat_pictures/*
